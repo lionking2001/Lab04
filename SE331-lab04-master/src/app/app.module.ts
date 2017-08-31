@@ -11,6 +11,7 @@ import {MenuComponent} from "./menu/menu.component";
 import {RouterModule, Routes} from "@angular/router";
 import {FileNotFoundComponent} from "./filenotfound/file-not-found-component";
 import {AppRoutingModule} from "./app-routing-module";
+import {StudentRoutingModule} from "./students/student-routing.module";
 
 const appRoutes: Routes = [
   {path: 'view', component: StudentsViewComponent,
@@ -27,10 +28,7 @@ const appRoutes: Routes = [
     "description": "The great man ever!!!!!!!!!!!!!!"
   }}
   },
-  {path: 'add', component: StudentsAddComponent},
-  {path: 'list', component: StudentsComponent},
-  {path: '', redirectTo: '/list',pathMatch: 'full'},
-  {path: '**', component: FileNotFoundComponent}
+
 ];
 
 @NgModule({
@@ -41,7 +39,7 @@ const appRoutes: Routes = [
     MenuComponent,
     FileNotFoundComponent],
 
-  imports: [BrowserModule, FormsModule, HttpModule,AppRoutingModule],
+  imports: [BrowserModule, FormsModule, HttpModule,StudentRoutingModule],
   bootstrap: [AppComponent],
   providers: [StudentsDataService],
 

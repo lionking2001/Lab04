@@ -1,11 +1,12 @@
+
 import {RouterModule, Routes} from "@angular/router";
-import {StudentsViewComponent} from "./students/view/students.view.component";
-import {StudentsAddComponent} from "./students/add/students.add.component";
-import {StudentsComponent} from "./students/list/students.component";
-import {FileNotFoundComponent} from "./filenotfound/file-not-found-component";
+import {StudentsViewComponent} from "./view/students.view.component";
+import {StudentsAddComponent} from "./add/students.add.component";
+import {StudentsComponent} from "./list/students.component";
+import {FileNotFoundComponent} from "../filenotfound/file-not-found-component";
 import {NgModule} from "@angular/core";
 
-const appRoutes: Routes=[
+const studentRoutes: Routes=[
   {
     path: 'view', component: StudentsViewComponent,
     data:{
@@ -22,18 +23,21 @@ const appRoutes: Routes=[
       }
     }
   },
+  {path: 'add',component: StudentsAddComponent},
+  {path: 'list',component: StudentsComponent},
+  {path: '',  redirectTo: '/list',pathMatch: 'full'},
   {path: '**', component: FileNotFoundComponent}
 
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(studentRoutes)
   ],
   exports: [
     RouterModule
   ]
 })
-export class AppRoutingModule {
+export class StudentRoutingModule{
 }
 
 
