@@ -12,7 +12,20 @@ import {RouterModule, Routes} from "@angular/router";
 import {FileNotFoundComponent} from "./filenotfound/file-not-found-component";
 
 const appRoutes: Routes = [
-  {path: 'view', component: StudentsViewComponent},
+  {path: 'view', component: StudentsViewComponent,
+    data:{
+  student:{
+    "id":2,
+    "studentId":"SE-001",
+    "name": "Prayuth",
+    "surname": "The Minister",
+    "gpa": 3.59,
+    "image": "images/tu.jpg",
+    "featured": false,
+    "penAmount":15,
+    "description": "The great man ever!!!!!!!!!!!!!!"
+  }}
+  },
   {path: 'add', component: StudentsAddComponent},
   {path: 'list', component: StudentsComponent},
   {path: '', redirectTo: '/list',pathMatch: 'full'},
