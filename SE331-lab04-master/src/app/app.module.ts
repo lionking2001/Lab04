@@ -9,6 +9,7 @@ import {StudentsDataService} from './service/students-data.service';
 import {HttpModule} from '@angular/http';
 import {MenuComponent} from "./menu/menu.component";
 
+
 @NgModule({
   declarations: [AppComponent,
     StudentsComponent,
@@ -18,6 +19,7 @@ import {MenuComponent} from "./menu/menu.component";
   imports: [BrowserModule, FormsModule, HttpModule],
   bootstrap: [AppComponent],
   providers: [StudentsDataService],
+
 })
 export class AppModule {
 }
