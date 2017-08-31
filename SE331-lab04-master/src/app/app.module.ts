@@ -10,6 +10,7 @@ import {HttpModule} from '@angular/http';
 import {MenuComponent} from "./menu/menu.component";
 import {RouterModule, Routes} from "@angular/router";
 import {FileNotFoundComponent} from "./filenotfound/file-not-found-component";
+import {AppRoutingModule} from "./app-routing-module";
 
 const appRoutes: Routes = [
   {path: 'view', component: StudentsViewComponent,
@@ -40,7 +41,7 @@ const appRoutes: Routes = [
     MenuComponent,
     FileNotFoundComponent],
 
-  imports: [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(appRoutes)],
+  imports: [BrowserModule, FormsModule, HttpModule,AppRoutingModule],
   bootstrap: [AppComponent],
   providers: [StudentsDataService],
 
