@@ -26,7 +26,8 @@ const studentRoutes: Routes=[
   {path: 'add',component: StudentsAddComponent},
   {path: 'list',component: StudentsComponent},
   {path: '',  redirectTo: '/list',pathMatch: 'full'},
-  {path: '**', component: FileNotFoundComponent}
+  {path: '**', component: FileNotFoundComponent},
+  {path: 'detail/:id',component:StudentsViewComponent}
 
 ];
 @NgModule({

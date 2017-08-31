@@ -43,4 +43,8 @@ export class StudentsDataDbService{
   getStudentsData(){
     return new Observable<Student[]>((subscriber:Subscriber<Student[]>)=>subscriber.next(this.students));
   }
+  getStudent(id:number){
+    let student= this.students.find(student=> student.id=== +id);
+    return new Observable<Student>((subscriber:Subscriber<Student>)=>subscriber.next(student));
+  }
 }

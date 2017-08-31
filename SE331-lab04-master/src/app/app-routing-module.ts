@@ -22,6 +22,9 @@ const appRoutes: Routes=[
       }
     }
   },
+  {path: 'add',component: StudentsAddComponent},
+  {path: 'list',component: StudentsComponent},
+  {path: '',  redirectTo: '/list',pathMatch: 'full'},
   {path: '**', component: FileNotFoundComponent}
 
 ];
