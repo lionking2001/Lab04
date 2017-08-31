@@ -8,7 +8,13 @@ import {FormsModule} from '@angular/forms';
 import {StudentsDataService} from './service/students-data.service';
 import {HttpModule} from '@angular/http';
 import {MenuComponent} from "./menu/menu.component";
+import {RouterModule, Routes} from "@angular/router";
 
+const appRoutes: Routes = [
+  {path: 'view', component: StudentsViewComponent},
+  {path: 'add', component: StudentsAddComponent},
+  {path: 'list', component: StudentsComponent}
+];
 
 @NgModule({
   declarations: [AppComponent,
@@ -16,10 +22,12 @@ import {MenuComponent} from "./menu/menu.component";
     StudentsAddComponent,
     StudentsViewComponent,
     MenuComponent],
-  imports: [BrowserModule, FormsModule, HttpModule],
+
+  imports: [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(appRoutes)],
   bootstrap: [AppComponent],
   providers: [StudentsDataService],
 
 })
 export class AppModule {
+
 }
