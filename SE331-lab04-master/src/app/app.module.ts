@@ -9,11 +9,13 @@ import {StudentsDataService} from './service/students-data.service';
 import {HttpModule} from '@angular/http';
 import {MenuComponent} from "./menu/menu.component";
 import {RouterModule, Routes} from "@angular/router";
+import {FileNotFoundComponent} from "./filenotfound/file-not-found-component";
 
 const appRoutes: Routes = [
   {path: 'view', component: StudentsViewComponent},
   {path: 'add', component: StudentsAddComponent},
-  {path: 'list', component: StudentsComponent}
+  {path: 'list', component: StudentsComponent},
+  {path: '**', component: FileNotFoundComponent}
 ];
 
 @NgModule({
@@ -21,7 +23,8 @@ const appRoutes: Routes = [
     StudentsComponent,
     StudentsAddComponent,
     StudentsViewComponent,
-    MenuComponent],
+    MenuComponent,
+    FileNotFoundComponent],
 
   imports: [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(appRoutes)],
   bootstrap: [AppComponent],
