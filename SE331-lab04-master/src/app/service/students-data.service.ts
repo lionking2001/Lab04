@@ -1,7 +1,9 @@
 import {Injectable} from "@angular/core";
 import {Http} from "@angular/http";
-import {Student} from "../students/student";
+// import {Student} from "../students/student";
 import "rxjs/add/operator/map";
+
+import {Student} from "../students/student";
 
 @Injectable()
 export class StudentsDataService {
@@ -16,8 +18,9 @@ export class StudentsDataService {
 
   }
 
-  getStudent(id:number) {
-    return null;
-  }
 
+  getStudent(id: number) {
+    return ;
+
+  }
 }

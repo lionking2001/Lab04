@@ -21,18 +21,20 @@ const studentRoutes: Routes=[
         "penAmount":15,
         "description": "The great man ever!!!!!!!!!!!!!!"
       }
+
     }
+
   },
+
   {path: 'add',component: StudentsAddComponent},
   {path: 'list',component: StudentsComponent},
   {path: '',  redirectTo: '/list',pathMatch: 'full'},
   {path: '**', component: FileNotFoundComponent},
-  {path: 'detail/:id',component:StudentsViewComponent}
-
+  {path: 'detail/id',component: StudentsViewComponent}
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(studentRoutes)
+    RouterModule.forRoot(studentRoutes,{useHash: true})
   ],
   exports: [
     RouterModule

@@ -1,18 +1,20 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {Student} from '../student';
-import {StudentsDataService} from "../../service/students-data.service";
+
+import {Router} from "@angular/router";
+import {StudentsDataDBService} from "../../service/students-data-db-service";
 
 @Component({
  selector: 'students',
  templateUrl: 'app/students/list/students.component.html',
  styleUrls:['app/students/list/students.component.css']
 })
-export class StudentsComponent {
+export class StudentsComponent implements OnInit{
 	students: Student[];
 
-  constructor (private studentDataService:StudentsDataService){}
+  constructor (private studentDataDbService:StudentsDataDBService,private router:Router){}
   ngOnInit(){
-    this.studentDataService.getStudentsData()
+    this.studentDataDbService.getStudentsData()
       .subscribe(students => this.students= students);
   }
 	averageGpa(){
@@ -36,5 +38,10 @@ export class StudentsComponent {
 		if (student.penAmount >0)
 			student.penAmount--;
 	}
+showDetail(student: Student){
+	  // this.router.navigate(['/detail',student.id]);
+	  let link=['/detail',student.id];
+	  this.router.navigate(link);
 
+}
 }

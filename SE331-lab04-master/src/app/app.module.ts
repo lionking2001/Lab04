@@ -5,31 +5,29 @@ import {StudentsComponent} from './students/list/students.component';
 import {StudentsAddComponent} from './students/add/students.add.component';
 import {StudentsViewComponent} from './students/view/students.view.component';
 import {FormsModule} from '@angular/forms';
-import {StudentsDataService} from './service/students-data.service';
+
 import {HttpModule} from '@angular/http';
 import {MenuComponent} from "./menu/menu.component";
 import {RouterModule, Routes} from "@angular/router";
 import {FileNotFoundComponent} from "./filenotfound/file-not-found-component";
-import {AppRoutingModule} from "./app-routing-module";
+// import {AppRoutingModule} from "./app-routing-module";
 import {StudentRoutingModule} from "./students/student-routing.module";
+import {APP_BASE_HREF, HashLocationStrategy, LocationStrategy} from "@angular/common";
+
+import {ROUTER_PROVIDERS} from "@angular/router/src/router_module";
+import {StudentsDataDBService} from "./service/students-data-db-service";
+
 
 const appRoutes: Routes = [
-  {path: 'view', component: StudentsViewComponent,
-    data:{
-  student:{
-    "id":2,
-    "studentId":"SE-001",
-    "name": "Prayuth",
-    "surname": "The Minister",
-    "gpa": 3.59,
-    "image": "images/tu.jpg",
-    "featured": false,
-    "penAmount":15,
-    "description": "The great man ever!!!!!!!!!!!!!!"
-  }}
-  },
 
+
+
+  {path: 'add',component: StudentsAddComponent},
+  {path: 'list',component: StudentsComponent},
+  {path: '**', component: FileNotFoundComponent},
+  {path: 'detail/:id',component: StudentsViewComponent}
 ];
+
 
 @NgModule({
   declarations: [AppComponent,
@@ -41,7 +39,8 @@ const appRoutes: Routes = [
 
   imports: [BrowserModule, FormsModule, HttpModule,StudentRoutingModule],
   bootstrap: [AppComponent],
-  providers: [StudentsDataService],
+  providers: [StudentsDataDBService],
+
 
 })
 export class AppModule {

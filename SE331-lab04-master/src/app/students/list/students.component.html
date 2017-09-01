@@ -1,6 +1,19 @@
+<div class="container-fluid">
+  <ul class="nav nav-pills">
 
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">SE001</a>
+        <a class="dropdown-item" href="#">SE002</a>
+        <a class="dropdown-item" href="#">SE003</a>
+
+      </div>
+    </li>
+  </ul>
+</div>
 	<div *ngFor="let student of students" class="row">
-		<div class="panel panel-primary col-md-6 col-md-6 col-sm-8" >
+		<div class="panel panel-primary col-md-6 col-md-6 col-sm-8" (click)="showDetail(student)" >
 				<div class="panel-heading">
 				<h2 class="panel-title">{{student.studentId }}</h2>
 				</div>

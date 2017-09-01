@@ -1,11 +1,11 @@
 import {Injectable} from "@angular/core";
 import {Student} from "../students/student";
 import {Observable} from "rxjs/Observable";
-import {Subscribable} from "rxjs/Observable";
 import {Subscriber} from "rxjs/Subscriber";
+import 'rxjs/add/operator/map';
 
 @Injectable()
-export class StudentsDataDbService{
+export class StudentsDataDBService{
   students: Student[]=[{
     "id": 1,
     "studentId":"SE-001",
@@ -44,7 +44,9 @@ export class StudentsDataDbService{
     return new Observable<Student[]>((subscriber:Subscriber<Student[]>)=>subscriber.next(this.students));
   }
   getStudent(id:number){
-    let student= this.students.find(student=> student.id=== +id);
-    return new Observable<Student>((subscriber:Subscriber<Student>)=>subscriber.next(student));
+    let students= this.students.find(student=> student.id===id);
+    return new Observable<Student>((subscriber:Subscriber<Student>)=>subscriber.next(students));
+
   }
+
 }
